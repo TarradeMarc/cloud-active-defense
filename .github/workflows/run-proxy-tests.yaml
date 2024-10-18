@@ -26,4 +26,12 @@ jobs:
           OUTPUT=$(./runTests.sh)
           echo "$OUTPUT"
           
-          echo "$OUTPUT" | grep -q 'FAIL' && exit 1 || exit 0
+          if [[ "$OUTPUT" | grep -q 'FAIL' ]]; then
+            echo -e "\033[0;31mTEST FAILED\033[0m"
+            echo One or more tests failed !
+            exit 1
+          else
+            echo -e "\033[0;32mTEST PASSED\033[0m"
+            echo All tests passed !
+            exit 0
+          fi
