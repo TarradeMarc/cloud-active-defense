@@ -1,6 +1,9 @@
 name: Run envoy proxy tests
 
-on: [push]
+on: [release]
+
+permissions:
+  contents: read
 
 jobs:
   run-tests:
