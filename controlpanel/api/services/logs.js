@@ -131,7 +131,7 @@ module.exports = {
                     errors.push({ log, error: '.log attribute is too long' });
                 }
                 // Updated regular expression to remove ambiguity and ensure efficient matching
-                const matchLog = log.log.match(/^cad-filter:\s*(?<log>[a-zA-Z0-9_-]+).*$/);
+                const matchLog = log.log.match(/^cad-filter:\s*(?<log>[.*]+).*$/);
                 if (matchLog != null) log.log = matchLog.groups.log;
                 if (!isJSON(log.log)) {
                     errors.push({ log, error: '.log attribute is not a JSON' });
